@@ -15,7 +15,7 @@
  * Distributed under the MIT license.
  *
  * Arguments:
- *  -d DEFINE_JSON -- define a json containing defintions availabe to prepro
+ *  -o DEFINE_JSON -- define a json containing defintions availabe to prepro
  *  -i INCLUDE_JS -- include a JS file containing definitinos availabe to prepro
  *  -c -- strip comments
  */
