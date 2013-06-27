@@ -1,12 +1,23 @@
 {
 	"name": "prepro",
-	"version": "0.0.0",
+	"version": "0.5.0",
 	"main": "prepro.js",
-	"description": "A JavaScript based preprocesssor language for JavaScript",
-    "author": "Jürg Lehni <juerg@lehni.org> (http://lehni.org)",
-    "license": "MIT",
+	"description": "A JavaScript based preprocesssor language for JavaScript.",
+	"author": "Jürg Lehni <juerg@lehni.org> (http://lehni.org)",
+	"license": "MIT",
+	"bin": {
+		"prepro": "bin/prepro"
+	},
+	"dependencies": {
+	  "uncomment": "~0.1.0"
+	},
 	"homepage": "https://github.com/lehni/prepro.js",
 	"repository": "git://github.com/lehni/prepro.js",
-    "bugs": "https://github.com/lehni/prepro.js/issues",
-	"keywords": ["javascript", "preprocesssor", "preprocessing", "language" ]  
+	"bugs": "https://github.com/lehni/prepro.js/issues",
+	"keywords": [
+		"javascript",
+		"preprocesssor",
+		"preprocessing",
+		"language"
+	]  
 }

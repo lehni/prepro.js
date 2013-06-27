@@ -1,0 +1,67 @@
+#!/usr/bin/env node
+
+/**
+ * prepro.js - A JavaScript based preprocesssor language for JavaScript
+ *
+ * Copyright (c) 2011 - 2013 Juerg Lehni
+ * http://lehni.org/
+ *
+ * prepro.js is a simple preprocesssor for JavaScript that speaks JavaScript,
+ * written in JavaScript, allowing preprocessing to either happen at build time
+ * or compile time. It is very useful for libraries that are built for
+ * distribution, but can be also compiled from seperate sources directly for
+ * development, supporting build time switches.
+ *
+ * Distributed under the MIT license.
+ *
+ * Arguments:
+ *  -d DEFINE_JSON -- define a json containing defintions availabe to prepro
+ *  -i INCLUDE_JS -- include a JS file containing definitinos availabe to prepro
+ *  -c -- strip comments
+ */
+
+// Required libs
+
+var path = require('path'),
+	prepro = require('../lib/prepro');
+
+// Parse arguments
+
+var args = process.argv.slice(2),
+	files = [],
+	uncomment = false;
+
+while (args.length > 0) {
+	var arg = args.shift();
+	switch (arg) {
+	case '-o':
+		// Options are provided as JSON and supposed to be object literals
+		prepro.setOptions(JSON.parse(args.shift()));
+		break;
+	case '-i':
+		// Include code to be present at prepro time, e.g. for on-the-fly
+		// replacement of constants, using /*#=*/ statements.
+		// Luckily we can reuse the include() / parse() functionality to do so:
+		var file = args.shift();
+		if (file)
+			prepro.include(path.resolve(), path.normalize(file), true);
+		break;
+	case '-c':
+		uncomment = true;
+		break;
+	default:
+		files.push(arg);
+	}
+}
+
+// Include all files. Everything else happens from there, through include()
+files.forEach(function(file) {
+	prepro.include(path.resolve(), file);
+});
+
+var out = prepro.process({
+	uncomment: uncomment
+});
+
+// Write the result out
+process.stdout.write(out);
