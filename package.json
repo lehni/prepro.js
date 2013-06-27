@@ -1,6 +1,6 @@
 {
 	"name": "prepro",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"main": "prepro.js",
 	"description": "A JavaScript based preprocesssor language for JavaScript.",
 	"author": "Jürg Lehni <juerg@lehni.org> (http://lehni.org)",
