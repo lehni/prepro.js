@@ -9,7 +9,7 @@
 		"prepro": "bin/prepro"
 	},
 	"dependencies": {
-	  "uncomment": "~0.1.0"
+		"uncomment": "~0.1.0"
 	},
 	"homepage": "https://github.com/lehni/prepro.js",
 	"repository": "git://github.com/lehni/prepro.js",
