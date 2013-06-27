@@ -45,7 +45,7 @@ while (args.length > 0) {
 		// Luckily we can reuse the include() / parse() functionality to do so:
 		var file = args.shift();
 		if (file)
-			prepro.include(path.join(base, file), true);
+			prepro.include(path.join(base, file), { evaluate: true });
 		break;
 	case '-c':
 		uncomment = true;
