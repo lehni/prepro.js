@@ -28,6 +28,7 @@ var path = require('path'),
 // Parse arguments
 
 var args = process.argv.slice(2),
+	base = path.resolve(),
 	files = [],
 	uncomment = false;
 
@@ -44,7 +45,7 @@ while (args.length > 0) {
 		// Luckily we can reuse the include() / parse() functionality to do so:
 		var file = args.shift();
 		if (file)
-			prepro.include(path.resolve(), path.normalize(file), true);
+			prepro.include(path.join(base, file), true);
 		break;
 	case '-c':
 		uncomment = true;
@@ -56,7 +57,7 @@ while (args.length > 0) {
 
 // Include all files. Everything else happens from there, through include()
 files.forEach(function(file) {
-	prepro.include(path.resolve(), file);
+	prepro.include(path.join(base, file));
 });
 
 var out = prepro.process({
