@@ -3,8 +3,8 @@
 /**
  * prepro.js - A JavaScript based preprocesssor language for JavaScript
  *
- * Copyright (c) 2011 - 2013 Juerg Lehni
- * http://lehni.org/
+ * Copyright (c) 2011 - 2016 Juerg Lehni
+ * http://scratchdisk.com/
  *
  * prepro.js is a simple preprocesssor for JavaScript that speaks JavaScript,
  * written in JavaScript, allowing preprocessing to either happen at build time
@@ -29,40 +29,22 @@ var path = require('path'),
 
 var args = process.argv.slice(2),
 	base = path.resolve(),
-	files = [],
-	uncomment = false;
+	file = null;
 
 while (args.length > 0) {
 	var arg = args.shift();
 	switch (arg) {
-	case '-o':
-		// Options are provided as JSON and supposed to be object literals
-		prepro.setOptions(JSON.parse(args.shift()));
-		break;
 	case '-i':
 		// Include code to be present at prepro time, e.g. for on-the-fly
 		// replacement of constants, using /*#=*/ statements.
-		// Luckily we can reuse the include() / parse() functionality to do so:
-		var file = args.shift();
-		if (file)
-			prepro.include(path.join(base, file), { evaluate: true });
-		break;
-	case '-c':
-		uncomment = true;
+		var name = args.shift();
+		if (name)
+			prepro.evaluate(path.join(base, name));
 		break;
 	default:
-		files.push(arg);
+		file = path.join(base, arg);
 	}
 }
 
-// Include all files. Everything else happens from there, through include()
-files.forEach(function(file) {
-	prepro.include(path.join(base, file));
-});
-
-var out = prepro.process({
-	uncomment: uncomment
-});
-
-// Write the result out
-process.stdout.write(out);
+// Process file and write the result out
+process.stdout.write(prepro.process(file));

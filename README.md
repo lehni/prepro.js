@@ -1,11 +1,11 @@
-## prepro.js
+## Prepro.js
 
 A JavaScript based preprocesssor language for JavaScript
 
-Copyright (c) 2011 - 2013 Juerg Lehni
-http://lehni.org/
+Copyright (c) 2011 - 2016 Juerg Lehni
+http://scratchdisk.com/
 
-prepro.js is a simple preprocesssor for JavaScript that speaks JavaScript,
+Prepro.js is a simple preprocesssor for JavaScript that speaks JavaScript,
 written in JavaScript, allowing preprocessing to either happen at build time
 or compile time. It is very useful for libraries that are built for
 distribution, but can be also compiled from seperate sources directly for
