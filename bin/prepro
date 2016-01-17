@@ -1,29 +1,31 @@
 #!/usr/bin/env node
 
 /**
- * prepro.js - A JavaScript based preprocesssor language for JavaScript
+ * Prepro.js - A JavaScript based preprocesssor language for JavaScript
  *
  * Copyright (c) 2011 - 2016 Juerg Lehni
  * http://scratchdisk.com/
  *
- * prepro.js is a simple preprocesssor for JavaScript that speaks JavaScript,
+ * Prepro.js is a simple preprocesssor for JavaScript that speaks JavaScript,
  * written in JavaScript, allowing preprocessing to either happen at build time
  * or compile time. It is very useful for libraries that are built for
- * distribution, but can be also compiled from seperate sources directly for
+ * distribution, but can be also compiled from separate sources directly for
  * development, supporting build time switches.
  *
  * Distributed under the MIT license.
  *
  * Arguments:
- *  -o DEFINE_JSON -- define a json containing defintions availabe to prepro
- *  -i INCLUDE_JS -- include a JS file containing definitinos availabe to prepro
+ *
+ *  -i INCLUDE_JS -- include a JS file containing definitions and options
+ *   that are required to be available at preprocessing time.
+ *
  *  -c -- strip comments
  */
 
 // Required libs
 
 var path = require('path'),
-	prepro = require('../lib/prepro');
+	prepro = require('../lib/prepro')();
 
 // Parse arguments
 
@@ -35,7 +37,7 @@ while (args.length > 0) {
 	var arg = args.shift();
 	switch (arg) {
 	case '-i':
-		// Include code to be present at prepro time, e.g. for on-the-fly
+		// Include code to be present at preprocessing time, e.g. for on-the-fly
 		// replacement of constants, using /*#=*/ statements.
 		var name = args.shift();
 		if (name)

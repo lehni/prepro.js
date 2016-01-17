@@ -1,20 +1,23 @@
 {
-	"name": "prepro",
-	"version": "1.0.0",
-	"main": "lib/prepro.js",
-	"description": "A JavaScript based preprocesssor language for JavaScript.",
-	"author": "Jürg Lehni <juerg@scratchdisk.com> (http://scratchdisk.com)",
-	"license": "MIT",
-	"bin": {
-		"prepro": "bin/prepro"
-	},
-	"homepage": "https://github.com/lehni/prepro.js",
-	"repository": "git://github.com/lehni/prepro.js",
-	"bugs": "https://github.com/lehni/prepro.js/issues",
-	"keywords": [
-		"javascript",
-		"preprocesssor",
-		"preprocessing",
-		"language"
-	]  
+  "name": "prepro",
+  "version": "2.0.0",
+  "main": "lib/prepro.js",
+  "description": "A JavaScript based preprocesssor language for JavaScript.",
+  "author": "Jürg Lehni <juerg@scratchdisk.com> (http://scratchdisk.com)",
+  "license": "MIT",
+  "bin": {
+    "prepro": "bin/prepro"
+  },
+  "dependencies": {
+    "extend": "^3.0.0"
+  },
+  "homepage": "https://github.com/lehni/prepro.js",
+  "repository": "git://github.com/lehni/prepro.js",
+  "bugs": "https://github.com/lehni/prepro.js/issues",
+  "keywords": [
+    "javascript",
+    "preprocesssor",
+    "preprocessing",
+    "language"
+  ]
 }
