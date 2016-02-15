@@ -1,6 +1,6 @@
 {
   "name": "prepro",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "main": "lib/prepro.js",
   "description": "A JavaScript based preprocesssor language for JavaScript.",
   "author": "Jürg Lehni <juerg@scratchdisk.com> (http://scratchdisk.com)",
